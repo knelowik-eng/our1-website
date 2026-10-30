@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dar.dev</title>
+<meta name="description" content="Dar.dev — 3D-моделі, анімація логотипів і сайти.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>(function(){var r=document.documentElement;try{r.dataset.theme=localStorage.getItem('apex-theme')||'dark'}catch(e){r.dataset.theme='dark'}try{r.classList.add(sessionStorage.getItem('apex-trans')?'trans':'intro-on')}catch(e){r.classList.add('intro-on')}})()</script>
+</head>
+<body>
+<div class="curtain" id="curtain" aria-hidden="true">
+  <svg viewBox="0 0 32 32" width="64" height="64"><path d="M6 4H15A12 12 0 0 1 15 28H6ZM11 9V23H15A7 7 0 0 0 15 9Z" fill="#04100f" fill-rule="evenodd"/></svg>
+</div>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-in">
+    <svg class="intro-mark" viewBox="0 0 32 32">
+      <defs><linearGradient id="ig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4ffee"/><stop offset="1" stop-color="#58d3f7"/></linearGradient></defs>
+      <circle class="m-ring" cx="16" cy="17" r="10"/>
+      <path class="m-fill" d="M6 4H15A12 12 0 0 1 15 28H6ZM11 9V23H15A7 7 0 0 0 15 9Z"/>
+      <path class="m-line" pathLength="1" d="M6 4H15A12 12 0 0 1 15 28H6Z"/>
+      <path class="m-line" pathLength="1" d="M11 9V23H15A7 7 0 0 0 15 9Z"/>
+    </svg>
+    <div class="intro-word"><span>D</span><span>A</span><span>R</span></div>
+    <div class="intro-sub">.DEV</div>
+    <div class="intro-bar"><i></i></div>
+  </div>
+</div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Dar.dev">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+      <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8ffe9"/><stop offset="1" stop-color="#58d3f7"/></linearGradient></defs>
+      <path d="M6 4H15A12 12 0 0 1 15 28H6ZM11 9V23H15A7 7 0 0 0 15 9Z" fill="url(#lg)"/>
+    </svg>
+    <span>Dar<i>.dev</i></span>
+  </a>
+  <nav class="menu" id="menu">
+    <a href="#services" data-i18n="nav_services"></a>
+    <a href="#examples" data-i18n="nav_ex"></a>
+    <a href="#why" data-i18n="nav_why"></a>
+    <a href="about.html" data-i18n="nav_about"></a>
+    <a href="#contact" data-i18n="nav_contact"></a>
+  </nav>
+  <div class="lang" id="lang" role="group" aria-label="Language">
+    <button data-l="ua">UA</button><button data-l="en">EN</button>
+  </div>
+  <button class="theme" id="theme" aria-label="Theme"><svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-in">
+      <p class="chip"><i></i><span data-i18n="tag"></span></p>
+      <h1><span class="l1" data-i18n="h1a"></span><span class="l2 grad" data-i18n="h1b"></span></h1>
+      <p class="sub" data-i18n="sub"></p>
+      <div class="cta">
+        <a href="#contact" class="btn btn-main" data-i18n="btn1"></a>
+        <a href="#services" class="btn btn-ghost" data-i18n="btn2"></a>
+      </div>
+    </div>
+    <a href="#about" class="scroll" aria-label="Scroll"><span></span></a>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <p class="eyebrow" data-i18n="about_tag"></p>
+      <h2 data-i18n="about_title"></h2>
+      <p class="lead" data-i18n="about_text"></p>
+      <a href="about.html" class="btn btn-ghost more" data-i18n="more"></a>
+    </div>
+    <div class="stats">
+      <div class="stat spot"><b><span data-n="200">0</span>+</b><span data-i18n="st1"></span></div>
+      <div class="stat spot"><b><span data-n="9">0</span></b><span data-i18n="st2"></span></div>
+      <div class="stat spot wide">
+        <svg viewBox="0 0 64 32" width="64" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="14" cy="11" r="5"/><circle cx="32" cy="9" r="6"/><circle cx="50" cy="11" r="5"/>
+          <path d="M4 28c0-6 4-9 10-9M60 28c0-6-4-9-10-9M18 29c0-7 6-11 14-11s14 4 14 11"/>
+        </svg>
+        <div><strong data-i18n="st3"></strong><span data-i18n="st3d"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="sec-head">
+      <p class="eyebrow" data-i18n="svc_tag"></p>
+      <h2 data-i18n="svc_title"></h2>
+    </div>
+    <div class="cards">
+      <article class="card spot">
+        <span class="num">01</span>
+        <svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M4 16h40M11 12h.01M16 12h.01M14 28l-4 4 4 4M26 28l4 4-4 4"/></svg>
+        <h3 data-i18n="s3t"></h3>
+        <p data-i18n="s3d"></p>
+        <ul><li data-i18n="s3a"></li><li data-i18n="s3b"></li><li data-i18n="s3c"></li></ul>
+      </article>
+      <article class="card spot">
+        <span class="num">02</span>
+        <svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M20 16l13 8-13 8V16Z"/></svg>
+        <h3 data-i18n="s2t"></h3>
+        <p data-i18n="s2d"></p>
+        <ul><li data-i18n="s2a"></li><li data-i18n="s2b"></li><li data-i18n="s2c"></li></ul>
+      </article>
+      <article class="card spot">
+        <span class="num">03</span>
+        <svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M24 4 41 13v22L24 44 7 35V13L24 4Z"/><path d="M7 13l17 9 17-9M24 22v22"/></svg>
+        <h3 data-i18n="s1t"></h3>
+        <p data-i18n="s1d"></p>
+        <ul><li data-i18n="s1a"></li><li data-i18n="s1b"></li><li data-i18n="s1c"></li></ul>
+      </article>
+      <article class="card spot">
+        <span class="num">04</span>
+        <svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="5" y="7" width="38" height="28" rx="3"/><path d="M17 41h14M24 35v6M13 17h8M13 23h14M30 15l5 5-5 5"/></svg>
+        <h3 data-i18n="s4t"></h3>
+        <p data-i18n="s4d"></p>
+        <ul><li data-i18n="s4a"></li><li data-i18n="s4b"></li><li data-i18n="s4c"></li></ul>
+      </article>
+      <article class="card spot">
+        <span class="num">05</span>
+        <svg viewBox="0 0 48 48" width="52" height="52" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M14 14h20a10 10 0 0 1 9.6 12.8l-2 7A5 5 0 0 1 32 36l-3-4H19l-3 4a5 5 0 0 1-9.6-2.2l-2-7A10 10 0 0 1 14 14Z" transform="translate(0 1)"/><path d="M15 21v8M11 25h8M32 22h.01M36 27h.01"/></svg>
+        <h3 data-i18n="s5t"></h3>
+        <p data-i18n="s5d"></p>
+        <ul><li data-i18n="s5a"></li><li data-i18n="s5b"></li><li data-i18n="s5c"></li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="examples" id="examples">
+    <div class="sec-head">
+      <p class="eyebrow" data-i18n="ex_tag"></p>
+      <h2 data-i18n="ex_title"></h2>
+      <p class="lead" data-i18n="ex_sub"></p>
+    </div>
+    <div class="ex-grid">
+      <a class="ex-card" href="https://xn----7sbbatahbxobav2bitl4ah.com.ua/" target="_blank" rel="noopener noreferrer">
+        <div class="frame"><i></i><i></i><i></i></div>
+        <div class="shot"><img src="shots/1.jpg" width="1200" height="750" alt="" loading="lazy"><span class="open"><span data-i18n="ex_open"></span> ↗</span></div>
+        <div class="ex-meta"><h3 data-i18n="ex1"></h3><span class="t">Landing</span></div>
+      </a>
+      <a class="ex-card" href="https://priomkolorovogometalu.com/" target="_blank" rel="noopener noreferrer">
+        <div class="frame"><i></i><i></i><i></i></div>
+        <div class="shot"><img src="shots/2.jpg" width="1200" height="750" alt="" loading="lazy"><span class="open"><span data-i18n="ex_open"></span> ↗</span></div>
+        <div class="ex-meta"><h3 data-i18n="ex2"></h3><span class="t">Business</span></div>
+      </a>
+      <a class="ex-card" href="https://priyom-met.com/#home" target="_blank" rel="noopener noreferrer">
+        <div class="frame"><i></i><i></i><i></i></div>
+        <div class="shot"><img src="shots/3.jpg" width="1200" height="750" alt="" loading="lazy"><span class="open"><span data-i18n="ex_open"></span> ↗</span></div>
+        <div class="ex-meta"><h3 data-i18n="ex3"></h3><span class="t">Web tool</span></div>
+      </a>
+      <a class="ex-card" href="https://kurinrest.com/" target="_blank" rel="noopener noreferrer">
+        <div class="frame"><i></i><i></i><i></i></div>
+        <div class="shot"><img src="shots/4.jpg" width="1200" height="750" alt="" loading="lazy"><span class="open"><span data-i18n="ex_open"></span> ↗</span></div>
+        <div class="ex-meta"><h3 data-i18n="ex4"></h3><span class="t">Restaurant</span></div>
+      </a>
+    </div>
+    <p class="ex-note" data-i18n="ex_note"></p>
+  </section>
+
+  <section class="why" id="why">
+    <div class="sec-head">
+      <p class="eyebrow" data-i18n="why_tag"></p>
+      <h2 data-i18n="why_title"></h2>
+    </div>
+    <div class="grid4">
+      <article class="spot tile"><span class="num">01</span><h3 data-i18n="w1t"></h3><p data-i18n="w1d"></p></article>
+      <article class="spot tile"><span class="num">02</span><h3 data-i18n="w2t"></h3><p data-i18n="w2d"></p></article>
+      <article class="spot tile"><span class="num">03</span><h3 data-i18n="w3t"></h3><p data-i18n="w3d"></p></article>
+      <article class="spot tile"><span class="num">04</span><h3 data-i18n="w4t"></h3><p data-i18n="w4d"></p></article>
+    </div>
+  </section>
+
+  <section class="world" id="world">
+    <div class="sec-head">
+      <p class="eyebrow" data-i18n="map_tag"></p>
+      <h2 data-i18n="map_title"></h2>
+      <p class="lead" data-i18n="map_sub"></p>
+    </div>
+    <div class="map-wrap">
+      <div class="map" id="map">
+        <canvas id="mapCanvas" aria-hidden="true"></canvas>
+        <div class="pins" id="pins"></div>
+      </div>
+    </div>
+    <ul class="legend">
+      <li class="eu"><i></i><span data-i18n="reg_eu"></span></li>
+    </ul>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="sec-head">
+      <p class="eyebrow" data-i18n="ct_tag"></p>
+      <h2 data-i18n="ct_title"></h2>
+      <p class="lead" data-i18n="ct_sub"></p>
+    </div>
+    <div class="people">
+      <article class="person spot">
+        <div class="avatar">K</div>
+        <h3 data-i18n="p1"></h3>
+        <a class="handle" href="https://t.me/Billkd" target="_blank" rel="noopener">@Billkd</a>
+        <a class="phone" href="tel:+380973079947">097 307 9947</a>
+        <a class="btn btn-main" href="https://t.me/Billkd" target="_blank" rel="noopener"><span data-i18n="tg"></span> ↗</a>
+      </article>
+      <article class="person spot">
+        <div class="avatar">M</div>
+        <h3 data-i18n="p2"></h3>
+        <a class="handle" href="https://t.me/derkinnnn" target="_blank" rel="noopener">@derkinnnn</a>
+        <a class="phone" href="tel:+380989853600">098 985 3600</a>
+        <a class="btn btn-main" href="https://t.me/derkinnnn" target="_blank" rel="noopener"><span data-i18n="tg"></span> ↗</a>
+      </article>
+<article class="person spot">
+        <div class="avatar">Е</div>
+        <h3 data-i18n="p3"></h3>
+        <a class="handle" href="https://t.me/FlamingRacc" target="_blank" rel="noopener">@FlamingRacc</a>
+        <a class="phone" href="tel:+380689365399">068 936 5399</a>
+        <a class="btn btn-main" href="https://t.me/FlamingRacc" target="_blank" rel="noopener"><span data-i18n="tg"></span> ↗</a>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Dar.dev</span>
+  <span data-i18n="foot"></span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="map-data.js"></script>
+<script src="earth.js"></script>
+<script src="script.js"></script>
+<script src="map-oblasts.js"></script>
+<script src="map.js"></script>
+</body>
+</html>
+
+
+
+
